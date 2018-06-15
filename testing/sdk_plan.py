@@ -50,7 +50,7 @@ def get_plan(service_name, plan, timeout_seconds=TIMEOUT_SECONDS, multiservice_n
     def wait_for_plan():
         response = sdk_cmd.service_request('GET', service_name, path, retry=False, raise_on_error=False)
         if response.status_code == 417:
-            return response # avoid throwing, return plan with errors
+            return response  # avoid throwing, return plan with errors
         response.raise_for_status()
         return response
 
